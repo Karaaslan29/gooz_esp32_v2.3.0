@@ -3,7 +3,9 @@ import dev.gooz_pin_adc
 import dev.gooz_thread
 import dev.gooz_pin_gpio
 import dev.gooz_pin_pwm
+import dev.gooz_pin_i2c
 import _thread
+
 def init(cmd_arr):
     if cmd_arr[1] == "uart":
         if not len(cmd_arr) > 2:
@@ -21,6 +23,23 @@ def init(cmd_arr):
             dev.gooz_pin_uart.uart_delete(cmd_arr)
         else:
             print("Unknown uart command: "+'"'+cmd_arr[2]+'"')
+    
+    elif cmd_arr[1] =="i2c":
+        if not len(cmd_arr) > 2:
+            print("Missing Argument!")
+            return
+        if cmd_arr[2] == "show":
+            dev.gooz_pin_i2c.show_registered_i2c()
+        elif cmd_arr[2] == "write":
+            dev.gooz_pin_i2c.write(cmd_arr)
+        elif cmd_arr[2] == "listen":
+            dev.gooz_pin_i2c.listen(cmd_arr)
+        elif cmd_arr[2] == "p2p":
+            dev.gooz_pin_i2c.p2p(cmd_arr)
+        elif cmd_arr[2] == "del":
+            dev.gooz_pin_i2c.i2c_delete(cmd_arr)
+        else:
+            print("Unknown i2c command: "+'"'+cmd_arr[2]+'"')   
             
     elif cmd_arr[1] == "adc":
         if not len(cmd_arr) > 2:
@@ -69,6 +88,8 @@ def init(cmd_arr):
             return
         if cmd_arr[2] == "uart":
             dev.gooz_pin_uart.register(cmd_arr)
+        elif cmd_arr[2] == "i2c":
+            dev.gooz_pin_i2c.register(cmd_arr)
         elif cmd_arr[2] == "adc":
             dev.gooz_pin_adc.register(cmd_arr)
         elif cmd_arr[2] == "gpio":
@@ -77,3 +98,4 @@ def init(cmd_arr):
             dev.gooz_pin_pwm.register(cmd_arr)
         else:
             print("Unknown var command: "+'"'+cmd_arr[2]+'"')
+
