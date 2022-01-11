@@ -51,8 +51,14 @@ def register(cmd_arr):
     
     for pairs in key_list:
         if pairs == "name":
+            uart_name = value_list[temp_counter]
+            temp_counter += 1
+            """
+        if pairs == "name":
             name_flag = 0
+            print(value_list)
             while uart_name != value_list[temp_counter]:
+                print("-----------------")
                 for count in saved_uarts:
                     if saved_uarts[count]["name"] == value_list[temp_counter]:
                         name_flag = 1
@@ -61,7 +67,7 @@ def register(cmd_arr):
                     temp_counter += 1
                 else:
                     print("This name is exist. Give another name for that pin.")
-                    value_list[temp_counter] = input("Try another name > ")
+                    value_list[temp_counter] = input("Try another name > ")"""
         elif pairs == "baudrate":
             uart_baudrate = value_list[temp_counter]
             temp_counter += 1
@@ -87,7 +93,8 @@ def register(cmd_arr):
     print(saved_uarts)
     
 
-
+"""
+#not necessary
 def uart_dic_converter():
     global uart_dic
     counter = 0
@@ -106,19 +113,21 @@ def uart_dic_converter():
                 temp["type"] = registered_value[counter][i]
         counter += 1
         uart_dic.append(temp)
-        temp = {"name": "asd","type": "asd","baudrate": "asd", "rx": "asd","tx": "asd"}
+        temp = {"name": "asd","type": "asd","baudrate": "asd", "rx": "asd","tx": "asd"}"""
                 
         
 def show_registered_uart():
-    uart_dic_converter()
-    print(uart_dic)
+    print(saved_uarts)
     
 def uart_delete(cmd_arr):
-    global uart_dic
-    uart_dic_converter()
-    for uarts in uart_dic:
+    global saved_uarts    
+    counter = 0
+    
+    for uarts in saved_uarts:
         if uarts["name"] == cmd_arr[3]:
-            uart_dic.remove(uarts)
+            print("removed")
+            del saved_uarts[counter]
+        counter+=1
             
 def write(cmd_arr):
     for uarts in saved_uarts:
@@ -178,6 +187,9 @@ def p2p(cmd_arr):
             while uart_t.any() > 0:
                 rxData += uart_t.read(1)
             print(rxData.decode('utf-8'))
+
+
+    
 
 
     
