@@ -185,8 +185,6 @@ pin gpio read "name"  # reads the digital value of pin named "name"
 pin gpio del "name" # deletes the gpio pin of pin named "name"
 pin gpio delete "name" 
 ```
-<br/>
-
 # ADC
 
 Commands for ADC pins.
@@ -262,6 +260,7 @@ pin pwm del $name # Deletes the PWM pin of pin named "name"
 pin pwm delete $name
 ```
 # UART
+Commands for Uart pins.
 
 ## Pin Registering
 
@@ -312,7 +311,7 @@ pin uart p2p $(uart_name) --> # firstly sends data then sets it self to listen m
 ```
 # I2C
 
-A serial communication protocol.
+Commands for I2C pins.
 
 ## Pin Registering
 
