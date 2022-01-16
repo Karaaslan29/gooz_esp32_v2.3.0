@@ -1,5 +1,5 @@
 # Gooz Project for ESP32
-This project aims at a UNIX experience for microcontrollers.
+The Gooz project acts as an operating system and aims at a UNIX experience for microcontrollers. It includes many features such as general microcontroller usage, package management system and IoT based operations.
 
 # Basics
 
