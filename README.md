@@ -1,5 +1,5 @@
 # Gooz Project for ESP32
-This project aim is offering to use usely your Pico and getting power with own OS
+This project aims at a UNIX experience for microcontrollers.
 
 # Basics
 
