@@ -56,3 +56,98 @@ edigooz cat "name" # shows the contents of the text page
 
 edigooz ls # shows the saved text pages
 ```
+
+# GPIO
+
+Commands for GPIO settings
+
+## Pin Registering
+
+```bash
+pin var gpio –name=() –type=() –mode=() –pin=()
+```
+
+### Parameters
+
+```bash
+-name=()  # takes pin name
+-name=(My_Pin)
+```
+
+```bash
+-type=()  # takes pin type
+
+-type=(in)
+-type=(out)
+-type=(alt)
+-type=(opendrain)
+-type=(altopendrain)
+```
+
+```bash
+-mode=()  # takes mode of pin
+
+-mode=(pullup)
+-mode=(pulldown)
+```
+
+```bash
+-pin=()  # takes pin number
+
+-pin=(12)
+```
+
+## Using GPIO Pins
+
+```bash
+pin gpio write "name" HIGH  # applies HIGH voltage to pin named "name"
+
+pin gpio write "name" LOW  # applies LOW voltage to pin named "name"
+```
+
+```bash
+pin gpio read "name"  # reads the digital value of pin named "name"
+```
+
+```python
+pin gpio del "name" # deletes the gpio pin of pin named "name"
+pin gpio delete "name" 
+```
+<br/>
+
+# ADC
+
+Commands for ADC pins.
+
+## Pin Registering
+
+```bash
+pin var adc -name=() -pin=()
+```
+
+## Parameters
+
+```bash
+-name() # takes pin name
+-name(myAdc) #new adc pin name is myAdc
+```
+
+```bash
+-pin() # takes pin number
+-pin(32) # sets new adc pin on 32
+```
+
+## Using ADC Pins
+
+```bash
+pin adc read $name # Read and print ADC pin value
+                   # Value between 0-4095
+
+pin adc read $name $x #Read and print ADC pin value x times
+
+pin adc listen $name # Read data with 1 second interval until it stops
+pin adc listen stop # Stop listening data
+
+pin adc del $name # Deletes the ADC pin of pin named "name" 
+pin adc delete $name
+```
