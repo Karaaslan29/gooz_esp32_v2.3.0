@@ -19,7 +19,7 @@ else:
 """
 
 while(login_flag):
-    print(username+"@RPi_Pico:",end="")
+    print(username+"@ESP32:",end="")
     print(os.getcwd(),end=" ")
     msg = input(">> ")
     cmd_list = gooz_basic.command_analyzator(msg)
